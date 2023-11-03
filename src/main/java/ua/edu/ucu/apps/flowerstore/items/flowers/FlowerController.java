@@ -20,11 +20,6 @@ public class FlowerController {
 		return flowerService.getFlowers();
 	}
 
-//	@PostMapping("/add")
-//	public void addFlower(Flower flower) {
-//		flowerService.addFlower(flower);
-//	}
-
 	@PostMapping
 	public void addFlower(@RequestBody Flower flower) {
 		flowerService.addFlower(flower);
