@@ -6,11 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import ua.edu.ucu.apps.flowerstore.items.Item;
 
 @Getter @AllArgsConstructor @ToString @NoArgsConstructor
 @Entity
 @Table
-public class Flower {
+public class Flower extends Item {
     @Id
     @SequenceGenerator(
             name = "flowers_sequence",
@@ -28,18 +29,23 @@ public class Flower {
     private double price;
     public double sepalLength;
     private String color;
+    private String description;
 
-    public Flower(FlowerType flowerType,
+    public Flower(Long id,
+                  FlowerType flowerType,
                   double price,
                   double sepalLength,
-                  FlowerColor flowerColor) {
+                  FlowerColor flowerColor,
+                  String description) {
         /*
          * Copy constructor for Flower()
          */
+        this.id = id;
         this.flowerType = flowerType;
         this.price = price;
         this.sepalLength = sepalLength;
         this.color = flowerColor.toString();
+        this.description = description;
     }
 
     public Flower(Flower flower) {
@@ -48,6 +54,7 @@ public class Flower {
         this.price = flower.price;
         this.sepalLength = flower.sepalLength;
         this.color = flower.getColor();
+        this.description = flower.getDescription();
     }
 
     public String getFlowerType() {

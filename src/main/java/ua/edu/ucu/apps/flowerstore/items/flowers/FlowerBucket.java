@@ -5,20 +5,19 @@ import java.util.List;
 
 import ua.edu.ucu.apps.flowerstore.items.Item;
 
-public class FlowerBucket extends Item {
+public class FlowerBucket {
     private final List<FlowerPack> flowerPacks = new ArrayList<>();
 
-    protected FlowerBucket(String description) {
-        super(description);
-    }
-
-    @Override
-    public double price() {
+    public double getPrice() {
         double price = 0;
         for (FlowerPack flowerPack : flowerPacks) {
             price += flowerPack.getPrice();
         }
         return price;
+    }
+
+    public String getDescription() {
+        return "FLower Bucket description";
     }
 
     public void addFlowerPack(FlowerPack flowerPack) {

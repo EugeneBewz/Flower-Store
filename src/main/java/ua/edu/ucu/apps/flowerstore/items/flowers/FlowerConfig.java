@@ -12,24 +12,30 @@ public class FlowerConfig {
     CommandLineRunner commandLineRunner(FlowerRepository repository) {
         return args -> {
             Flower flower1 = new Flower(
+                    1L,
                     FlowerType.ROSE,
                     120,
                     80,
-                    FlowerColor.RED
+                    FlowerColor.RED,
+                    "Red Rose"
             );
 
             Flower flower2 = new Flower(
+                    2L,
                     FlowerType.CHAMOMILE,
                     100,
                     50,
-                    FlowerColor.WHITE
+                    FlowerColor.WHITE,
+                    "White Chamomile"
             );
 
             Flower flower3 = new Flower(
+                    3L,
                     FlowerType.TULIP,
                     110,
                     60,
-                    FlowerColor.BLUE
+                    FlowerColor.BLUE,
+                    "Blue Tulip"
             );
 
             repository.saveAll(

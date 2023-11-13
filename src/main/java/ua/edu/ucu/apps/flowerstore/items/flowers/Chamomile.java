@@ -1,10 +1,12 @@
 package ua.edu.ucu.apps.flowerstore.items.flowers;
 
 public class Chamomile extends Flower {
-    public Chamomile(FlowerType flowerType,
+    public Chamomile(Long id,
+                     FlowerType flowerType,
                      double price,
                      double sepalLength,
-                     FlowerColor color) {
-        super(flowerType, price, sepalLength, color);
+                     FlowerColor color,
+                     String description) {
+        super(id, flowerType, price, sepalLength, color, description);
     }
 }
