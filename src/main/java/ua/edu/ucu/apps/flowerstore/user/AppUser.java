@@ -79,7 +79,7 @@ public class AppUser {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                ", age=" + age +
+                ", age=" + getAge() +
                 '}';
     }
 }
