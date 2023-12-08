@@ -1,19 +1,18 @@
 package ua.edu.ucu.apps.flowerstore.decorators;
 
-public class BasketDecorator implements ItemDecorator {
-    public ItemDecorator item;
+public class BasketDecorator extends BasicDecorator {
 
-    public BasketDecorator(ItemDecorator item) {
-        this.item = item;
+    public BasketDecorator(BasicDecorator item) {
+        super(item);
     }
 
     @Override
     public double getPrice() {
-        return 4 + item.getPrice();
+        return 4 + super.getPrice();
     }
 
     @Override
     public String getDescription() {
-        return item.getDescription() + "Basket included.";
+        return super.getDescription() + "Basket included.";
     }
 }

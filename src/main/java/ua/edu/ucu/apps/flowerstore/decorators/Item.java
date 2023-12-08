@@ -1,6 +1,6 @@
 package ua.edu.ucu.apps.flowerstore.decorators;
 
-public interface ItemDecorator {
+public interface Item {
     String getDescription();
     double getPrice();
 }

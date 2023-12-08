@@ -3,8 +3,6 @@ package ua.edu.ucu.apps.flowerstore.items.flowers;
 import java.util.ArrayList;
 import java.util.List;
 
-import ua.edu.ucu.apps.flowerstore.items.Item;
-
 public class FlowerBucket {
     private final List<FlowerPack> flowerPacks = new ArrayList<>();
 

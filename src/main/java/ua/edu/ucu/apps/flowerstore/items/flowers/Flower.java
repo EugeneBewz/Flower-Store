@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import ua.edu.ucu.apps.flowerstore.decorators.Item;
 
 
 @Getter
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table
-public class Flower {
+public class Flower implements Item {
     @Id
     @SequenceGenerator(
             name = "flowers_sequence",
@@ -29,14 +30,15 @@ public class Flower {
     private double price;
     public double sepalLength;
     private String color;
+    @Getter
     private String description;
 
     public Flower(Long id,
                   FlowerType flowerType,
-                  double price,
+                  double new_price,
                   double sepalLength,
                   FlowerColor flowerColor,
-                  String description) {
+                  String new_description) {
         /*
          * Copy constructor for Flower()
          */
@@ -44,8 +46,8 @@ public class Flower {
         this.flowerType = flowerType;
         this.sepalLength = sepalLength;
         this.color = flowerColor.toString();
-        this.price = price;
-        this.description = description;
+        this.price = new_price;
+        this.description = new_description;
     }
 
     public Flower(Flower flower) {
@@ -53,8 +55,8 @@ public class Flower {
         this.flowerType = flower.flowerType;
         this.sepalLength = flower.getSepalLength();
         this.color = flower.getColor();
-        this.price = flower.getPrice();
-        this.description = flower.getDescription();
+        this.price = flower.price;
+        this.description = flower.description;
     }
 
     public String getFlowerType() {
@@ -62,7 +64,7 @@ public class Flower {
     }
 
     public void setPrice(int price) {
-        this.price = Math.max(0, price);  // avoid setting a negative price
+        price = Math.max(0, price);  // avoid setting a negative price
     }
 
     public void setColor(FlowerColor color) {
@@ -70,7 +72,7 @@ public class Flower {
     }
 
     public double price() {
-        return price;
+        return this.price;
     }
 
     @Override

@@ -1,19 +1,17 @@
 package ua.edu.ucu.apps.flowerstore.decorators;
 
-public class DiscountDecorator implements ItemDecorator {
-    public ItemDecorator item;
-
-    public DiscountDecorator(ItemDecorator item) {
-        this.item = item;
+public class DiscountDecorator extends BasicDecorator {
+    public DiscountDecorator(BasicDecorator item) {
+        super(item);
     }
 
     @Override
     public double getPrice() {
-        return item.getPrice() * 0.8;
+        return super.getPrice() * 0.8;
     }
 
     @Override
     public String getDescription() {
-        return item.getDescription() + "Discount (80%) applied.";
+        return super.getDescription() + "Discount (80%) applied.";
     }
 }

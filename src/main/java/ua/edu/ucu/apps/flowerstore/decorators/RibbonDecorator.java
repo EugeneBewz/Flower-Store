@@ -1,19 +1,17 @@
 package ua.edu.ucu.apps.flowerstore.decorators;
 
-public class RibbonDecorator implements ItemDecorator {
-    public ItemDecorator item;
-
-    public RibbonDecorator(ItemDecorator item) {
-        this.item = item;
+public class RibbonDecorator extends BasicDecorator {
+    public RibbonDecorator(BasicDecorator item) {
+        super(item);
     }
 
     @Override
     public double getPrice() {
-        return 40 + item.getPrice();
+        return 40 + super.getPrice();
     }
 
     @Override
     public String getDescription() {
-        return item.getDescription() + "Ribbon included.";
+        return super.getDescription() + "Ribbon included.";
     }
 }
